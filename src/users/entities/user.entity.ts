@@ -4,7 +4,7 @@ import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 export class User{
     @PrimaryGeneratedColumn("uuid")
     id: string;
-    @Column({nullable:false,})
+    @Column({nullable:false})
     name: string;
     @Column({nullable:false, default: 100})
     @Index()

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import dotenv from 'dotenv';
+
+import "dotenv/config"
 import {TypeOrmModule} from "@nestjs/typeorm";
 import { UsersModule } from './users/users.module';
 import * as process from "node:process";
 import * as path from "node:path";
+import {User} from "./users/entities/user.entity";
 
 
 @Module({
@@ -16,9 +16,8 @@ import * as path from "node:path";
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    entities: [path.resolve("src", "**", "*.entity.ts")],
+    entities: [User],
   }), UsersModule],
-  controllers: [AppController],
-  providers: [AppService],
+
 })
 export class AppModule {}
