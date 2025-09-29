@@ -6,6 +6,10 @@ import { UsersModule } from './users/users.module';
 import * as process from "node:process";
 import * as path from "node:path";
 import {User} from "./users/entities/user.entity";
+import { DuelsModule } from './duels/duels.module';
+import {Duel} from "./duels/entities/duel.entity";
+import { TournamentsModule } from './tournaments/tournaments.module';
+import {Tournament} from "./tournaments/entities/tournament.entity";
 
 
 @Module({
@@ -16,8 +20,8 @@ import {User} from "./users/entities/user.entity";
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    entities: [User],
-  }), UsersModule],
+    entities: [User, Duel, Tournament],
+  }), UsersModule, DuelsModule, TournamentsModule],
 
 })
 export class AppModule {}

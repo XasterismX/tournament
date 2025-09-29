@@ -9,13 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const class_validator_1 = require("class-validator");
-class GetTopUsers {
-    user;
-}
-exports.default = GetTopUsers;
-__decorate([
-    (0, class_validator_1.IsArray)(),
-    __metadata("design:type", Array)
-], GetTopUsers.prototype, "user", void 0);
-//# sourceMappingURL=GetTopUsers.dto.js.map
+exports.TournamentsController = void 0;
+const common_1 = require("@nestjs/common");
+const tournaments_service_1 = require("./tournaments.service");
+let TournamentsController = class TournamentsController {
+    tournamentsService;
+    constructor(tournamentsService) {
+        this.tournamentsService = tournamentsService;
+    }
+};
+exports.TournamentsController = TournamentsController;
+exports.TournamentsController = TournamentsController = __decorate([
+    (0, common_1.Controller)('tournaments'),
+    __metadata("design:paramtypes", [tournaments_service_1.TournamentsService])
+], TournamentsController);
+//# sourceMappingURL=tournaments.controller.js.map

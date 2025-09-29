@@ -11,12 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const typeorm_1 = require("typeorm");
+const tournament_entity_1 = require("../../tournaments/entities/tournament.entity");
+const duel_entity_1 = require("../../duels/entities/duel.entity");
 let User = class User {
     id;
     name;
     elo;
     duels_won;
+    duels_lose;
     tournament_played;
+    tournaments;
 };
 exports.User = User;
 __decorate([
@@ -33,13 +37,21 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "elo", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: 0 }),
-    __metadata("design:type", Number)
+    (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
+    __metadata("design:type", duel_entity_1.Duel)
 ], User.prototype, "duels_won", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
+    __metadata("design:type", duel_entity_1.Duel)
+], User.prototype, "duels_lose", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "tournament_played", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(type => tournament_entity_1.Tournament, (tournament) => tournament.id),
+    __metadata("design:type", Array)
+], User.prototype, "tournaments", void 0);
 exports.User = User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);

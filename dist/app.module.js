@@ -46,6 +46,10 @@ const typeorm_1 = require("@nestjs/typeorm");
 const users_module_1 = require("./users/users.module");
 const process = __importStar(require("node:process"));
 const user_entity_1 = require("./users/entities/user.entity");
+const duels_module_1 = require("./duels/duels.module");
+const duel_entity_1 = require("./duels/entities/duel.entity");
+const tournaments_module_1 = require("./tournaments/tournaments.module");
+const tournament_entity_1 = require("./tournaments/entities/tournament.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -58,8 +62,8 @@ exports.AppModule = AppModule = __decorate([
                 username: process.env.DB_USER,
                 password: process.env.DB_PASS,
                 database: process.env.DB_NAME,
-                entities: [user_entity_1.User],
-            }), users_module_1.UsersModule],
+                entities: [user_entity_1.User, duel_entity_1.Duel, tournament_entity_1.Tournament],
+            }), users_module_1.UsersModule, duels_module_1.DuelsModule, tournaments_module_1.TournamentsModule],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
