@@ -21,6 +21,7 @@ import {Tournament} from "./tournaments/entities/tournament.entity";
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     entities: [User, Duel, Tournament],
+    synchronize: true
   }), UsersModule, DuelsModule, TournamentsModule],
 
 })

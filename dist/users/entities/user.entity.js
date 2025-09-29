@@ -38,10 +38,12 @@ __decorate([
 ], User.prototype, "elo", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", duel_entity_1.Duel)
 ], User.prototype, "duels_won", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", duel_entity_1.Duel)
 ], User.prototype, "duels_lose", void 0);
 __decorate([

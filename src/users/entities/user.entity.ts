@@ -1,4 +1,4 @@
-import {Column, Entity, Index, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, Index, JoinColumn, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Tournament} from "../../tournaments/entities/tournament.entity";
 import {Duel} from "../../duels/entities/duel.entity";
 
@@ -12,8 +12,10 @@ export class User{
     @Index()
     elo: number
     @OneToMany(type => Duel, (duel) => duel.id)
+    @JoinColumn()
     duels_won: Duel
     @OneToMany(type => Duel, (duel) => duel.id)
+    @JoinColumn()
     duels_lose: Duel
     @Column({default:0})
     tournament_played: number

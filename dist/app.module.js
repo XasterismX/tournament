@@ -63,6 +63,7 @@ exports.AppModule = AppModule = __decorate([
                 password: process.env.DB_PASS,
                 database: process.env.DB_NAME,
                 entities: [user_entity_1.User, duel_entity_1.Duel, tournament_entity_1.Tournament],
+                synchronize: true
             }), users_module_1.UsersModule, duels_module_1.DuelsModule, tournaments_module_1.TournamentsModule],
     })
 ], AppModule);

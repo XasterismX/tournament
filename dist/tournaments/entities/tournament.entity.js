@@ -34,6 +34,7 @@ __decorate([
 ], Tournament.prototype, "status", void 0);
 __decorate([
     (0, typeorm_1.OneToOne)(type => user_entity_1.User, (user) => user.id),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", user_entity_1.User)
 ], Tournament.prototype, "winner", void 0);
 __decorate([

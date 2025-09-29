@@ -34,6 +34,7 @@ __decorate([
 ], Duel.prototype, "loser_id", void 0);
 __decorate([
     (0, typeorm_1.OneToOne)(type => tournament_entity_1.Tournament, (tournament) => tournament.id),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", tournament_entity_1.Tournament)
 ], Duel.prototype, "tournament_id", void 0);
 exports.Duel = Duel = __decorate([

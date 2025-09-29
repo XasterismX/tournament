@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../../users/entities/user.entity";
 import {Tournament} from "../../tournaments/entities/tournament.entity";
 
@@ -12,5 +12,6 @@ export class Duel {
     @ManyToOne(type => User, (user) => user.id)
     loser_id: User;
     @OneToOne(type => Tournament, (tournament) => tournament.id)
+    @JoinColumn()
     tournament_id: Tournament;
 }
