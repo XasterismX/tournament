@@ -37,21 +37,22 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "elo", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
-    (0, typeorm_1.JoinColumn)(),
-    __metadata("design:type", duel_entity_1.Duel)
+    (0, typeorm_1.OneToMany)(() => duel_entity_1.Duel, (duel) => duel.id),
+    (0, typeorm_1.JoinColumn)({ name: "duel_won_id" }),
+    __metadata("design:type", Array)
 ], User.prototype, "duels_won", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(type => duel_entity_1.Duel, (duel) => duel.id),
-    (0, typeorm_1.JoinColumn)(),
-    __metadata("design:type", duel_entity_1.Duel)
+    (0, typeorm_1.OneToMany)(() => duel_entity_1.Duel, (duel) => duel.id),
+    (0, typeorm_1.JoinColumn)({ name: "duel_lose_id" }),
+    __metadata("design:type", Array)
 ], User.prototype, "duels_lose", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "tournament_played", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(type => tournament_entity_1.Tournament, (tournament) => tournament.id),
+    (0, typeorm_1.ManyToMany)(() => tournament_entity_1.Tournament, (tournament) => tournament.id),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", Array)
 ], User.prototype, "tournaments", void 0);
 exports.User = User = __decorate([

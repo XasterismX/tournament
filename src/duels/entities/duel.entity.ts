@@ -7,11 +7,10 @@ export class Duel {
 
     @PrimaryGeneratedColumn("uuid")
     id: string;
-    @ManyToOne(type => User, (user) => user.id)
+    @ManyToOne(()=> User, (user) => user.id)
     winner_id: User;
-    @ManyToOne(type => User, (user) => user.id)
+    @ManyToOne(() => User, (user) => user.id)
     loser_id: User;
-    @OneToOne(type => Tournament, (tournament) => tournament.id)
-    @JoinColumn()
+    @ManyToOne(() => Tournament, (tournament) => tournament.id)
     tournament_id: Tournament;
 }

@@ -25,16 +25,15 @@ __decorate([
     __metadata("design:type", String)
 ], Duel.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(type => user_entity_1.User, (user) => user.id),
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.id),
     __metadata("design:type", user_entity_1.User)
 ], Duel.prototype, "winner_id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(type => user_entity_1.User, (user) => user.id),
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.id),
     __metadata("design:type", user_entity_1.User)
 ], Duel.prototype, "loser_id", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(type => tournament_entity_1.Tournament, (tournament) => tournament.id),
-    (0, typeorm_1.JoinColumn)(),
+    (0, typeorm_1.ManyToOne)(() => tournament_entity_1.Tournament, (tournament) => tournament.id),
     __metadata("design:type", tournament_entity_1.Tournament)
 ], Duel.prototype, "tournament_id", void 0);
 exports.Duel = Duel = __decorate([

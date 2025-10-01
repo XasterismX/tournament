@@ -24,7 +24,13 @@ export class UsersService {
     }
 
     async getTopUsers(count: number): Promise<User[]> {
-        const topUsers = await this.userRepo.find({order:{elo: "DESC", duels_won: "DESC", tournament_played: "DESC"},take: count})
+        const topUsers = await this.userRepo.find({
+            order:{elo: "DESC", tournament_played: "DESC"},
+            take: count,
+            relations: {
+                duels_won: true,
+                duels_lose: true
+            }})
         return topUsers;
     }
 }

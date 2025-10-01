@@ -7,9 +7,9 @@ export class DuelsController {
   constructor(private readonly duelsService: DuelsService) {}
 
   @Post()
-  private async startDuel(@Body() startDule: startDuel){
+  private async startDuel(@Body() startDuel: startDuel){
 
-    return await this.duelsService.startDuel(startDule.firstUserId, startDule.secondUserId)
+    return await this.duelsService.startDuel(startDuel.firstUserId, startDuel.secondUserId)
   }
 
 

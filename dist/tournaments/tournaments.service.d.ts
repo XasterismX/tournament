@@ -6,5 +6,5 @@ export declare class TournamentsService {
     private readonly userRepository;
     private readonly dataSource;
     constructor(tournamentRepo: Repository<Tournament>, userRepository: Repository<User>, dataSource: DataSource);
-    startTournament(name: string): Promise<void>;
+    startTournament(name: string): Promise<Tournament>;
 }

@@ -11,15 +11,16 @@ export class User{
     @Column({nullable:false, default: 100})
     @Index()
     elo: number
-    @OneToMany(type => Duel, (duel) => duel.id)
-    @JoinColumn()
-    duels_won: Duel
-    @OneToMany(type => Duel, (duel) => duel.id)
-    @JoinColumn()
-    duels_lose: Duel
+    @OneToMany(() => Duel, (duel) => duel.id)
+    @JoinColumn({ name: "duel_won_id" })
+    duels_won: Duel[]
+    @OneToMany(() => Duel, (duel) => duel.id)
+    @JoinColumn({ name: "duel_lose_id" })
+    duels_lose: Duel[]
     @Column({default:0})
     tournament_played: number
-    @ManyToMany(type => Tournament, (tournament) => tournament.id)
+    @ManyToMany(() => Tournament, (tournament) => tournament.id)
+    @JoinColumn()
     tournaments: Tournament[];
 
 }

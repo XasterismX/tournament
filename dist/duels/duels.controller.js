@@ -24,8 +24,8 @@ let DuelsController = class DuelsController {
     constructor(duelsService) {
         this.duelsService = duelsService;
     }
-    async startDuel(startDule) {
-        return await this.duelsService.startDuel(startDule.firstUserId, startDule.secondUserId);
+    async startDuel(startDuel) {
+        return await this.duelsService.startDuel(startDuel.firstUserId, startDuel.secondUserId);
     }
 };
 exports.DuelsController = DuelsController;
